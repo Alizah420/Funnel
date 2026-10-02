@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>15 Booked Consultations in 30 Days | Meta Ads for Med Spas</title>
+<meta name="description" content="15 booked consultations. 30 days. Or you pay nothing. Meta Ads and a 60-second CRM follow-up system for medical spas.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@800&family=Playfair+Display:wght@600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #0b0b0d;
+    --bg-alt: #121216;
+    --card: #17171c;
+    --border: #26262e;
+    --text: #ececef;
+    --muted: #9a9aa6;
+    --gold: #d4af37;
+    --gold-light: #e9c968;
+    --gold-dark: #a8862a;
+    --radius: 14px;
+    --max: 1080px;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .container { width: 100%; max-width: var(--max); margin: 0 auto; padding: 0 20px; }
+
+  section { padding: 96px 0; }
+  section:nth-of-type(even) { background: var(--bg-alt); }
+
+  .eyebrow {
+    display: inline-block;
+    font-size: 0.78rem;
+    font-weight: 600;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 16px;
+  }
+
+  h1, h2, h3 { line-height: 1.15; font-weight: 700; letter-spacing: -0.02em; }
+  h1 {
+    font-family: "Montserrat", "Segoe UI", Arial, sans-serif;
+    font-weight: 800;
+    font-size: clamp(2.3rem, 6.2vw, 4.2rem);
+    letter-spacing: -0.03em;
+    line-height: 1.08;
+  }
+  h2 { font-size: clamp(1.7rem, 4vw, 2.6rem); margin-bottom: 16px; }
+  h3 { font-size: 1.15rem; margin-bottom: 8px; }
+
+  .gold { color: var(--gold); }
+  .lead { font-size: clamp(1.05rem, 2.2vw, 1.25rem); color: var(--muted); max-width: 680px; }
+  .center { text-align: center; }
+  .center .lead { margin-left: auto; margin-right: auto; }
+
+  .section-head { margin-bottom: 48px; }
+
+  /* Button */
+  .btn {
+    display: inline-block;
+    background: linear-gradient(135deg, var(--gold-light), var(--gold) 50%, var(--gold-dark));
+    color: #111;
+    font-weight: 700;
+    font-size: 1.05rem;
+    text-decoration: none;
+    padding: 18px 40px;
+    border-radius: 999px;
+    box-shadow: 0 8px 30px rgba(212, 175, 55, 0.25);
+    transition: transform 0.45s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.45s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+  .btn:hover, .btn:focus-visible {
+    transform: translateY(-4px) scale(1.06);
+    box-shadow: 0 16px 50px rgba(212, 175, 55, 0.5);
+    outline: none;
+  }
+
+  /* 1. Headline */
+  .hero {
+    min-height: 100vh;
+    min-height: 100svh;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    background:
+      radial-gradient(ellipse at top, rgba(212, 175, 55, 0.12), transparent 60%),
+      var(--bg);
+  }
+  .hero { position: relative; overflow: hidden; }
+  .hero-video {
+    position: absolute; inset: 0;
+    width: 100%; height: 100%;
+    object-fit: cover;
+    z-index: 0;
+  }
+  .hero-overlay {
+    position: absolute; inset: 0; z-index: 1;
+    background:
+      radial-gradient(ellipse at top, rgba(212, 175, 55, 0.14), transparent 60%),
+      linear-gradient(180deg, rgba(11, 11, 13, 0.72) 0%, rgba(11, 11, 13, 0.6) 45%, rgba(11, 11, 13, 0.95) 100%);
+  }
+  .hero .container { position: relative; z-index: 2; }
+  .hero .lead, .hero .note { color: #d6d6dc; }
+  .hero h1 { max-width: 900px; margin: 0 auto 24px; text-shadow: 0 2px 24px rgba(0, 0, 0, 0.5); }
+  .hero .lead { margin: 0 auto 40px; }
+  .hero .note { margin-top: 16px; font-size: 0.85rem; color: var(--muted); }
+
+  /* Card grid (sections 2 & 3) */
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 20px;
+  }
+  .card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 32px 28px;
+    transition: border-color 0.2s ease;
+  }
+  /* Luxurious hover pop */
+  .card, .stat {
+    transition: transform 0.45s cubic-bezier(0.22, 1, 0.36, 1),
+                box-shadow 0.45s cubic-bezier(0.22, 1, 0.36, 1),
+                border-color 0.45s ease;
+    will-change: transform;
+  }
+  .card:hover, .stat:hover {
+    transform: translateY(-8px) scale(1.025);
+    border-color: rgba(212, 175, 55, 0.6);
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.55), 0 0 0 1px rgba(212, 175, 55, 0.25), 0 0 40px rgba(212, 175, 55, 0.12);
+  }
+  .icon { transition: transform 0.45s cubic-bezier(0.22, 1, 0.36, 1), background 0.45s ease; }
+  .card:hover .icon { transform: scale(1.1); background: rgba(212, 175, 55, 0.2); }
+  .list li { transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1), color 0.35s ease; }
+  .list li:hover { transform: translateX(6px); color: var(--gold-light); }
+
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after { transition: none !important; }
+  }
+  .card p { color: var(--muted); }
+  .icon {
+    width: 44px; height: 44px;
+    border-radius: 10px;
+    display: grid; place-items: center;
+    background: rgba(212, 175, 55, 0.1);
+    color: var(--gold);
+    font-weight: 700;
+    margin-bottom: 20px;
+  }
+
+  /* 3. Who it's for list */
+  .fit {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+  }
+  .card p + p { margin-top: 12px; }
+  .card h3 + .list { margin-top: 8px; }
+  .list { list-style: none; }
+  .list li {
+    position: relative;
+    padding: 14px 0 14px 36px;
+    border-bottom: 1px solid var(--border);
+    color: var(--text);
+  }
+  .list li:last-child { border-bottom: 0; }
+  .list li::before {
+    content: "";
+    position: absolute; left: 0; top: 19px;
+    width: 20px; height: 20px; border-radius: 50%;
+    background: rgba(212, 175, 55, 0.15);
+    box-shadow: inset 0 0 0 1.5px var(--gold);
+  }
+  .not .list li { color: var(--muted); }
+  .not .list li::before {
+    background: transparent;
+    box-shadow: inset 0 0 0 1.5px var(--border);
+  }
+
+  /* 4. Proof */
+  .stats {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 20px;
+    margin-bottom: 48px;
+  }
+  .stat {
+    text-align: center;
+    padding: 28px 16px;
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    background: var(--card);
+  }
+  .stat strong {
+    display: block;
+    font-size: clamp(2rem, 5vw, 2.8rem);
+    color: var(--gold);
+    line-height: 1.1;
+    margin-bottom: 6px;
+  }
+  .stat span { color: var(--muted); font-size: 0.92rem; }
+
+  .quote p { font-size: 1.05rem; margin-bottom: 20px; }
+  .quote footer { display: flex; align-items: center; gap: 12px; }
+  .avatar {
+    width: 40px; height: 40px; border-radius: 50%;
+    background: linear-gradient(135deg, var(--gold), var(--gold-dark));
+    color: #111; font-weight: 700;
+    display: grid; place-items: center; flex-shrink: 0;
+  }
+  .quote cite { font-style: normal; font-weight: 600; display: block; }
+  .quote small { color: var(--muted); }
+
+  /* 5. CTA */
+  .cta {
+    text-align: center;
+    background:
+      radial-gradient(ellipse at bottom, rgba(212, 175, 55, 0.14), transparent 65%),
+      var(--bg) !important;
+    border-top: 1px solid var(--border);
+  }
+  .cta .lead { margin: 0 auto 40px; color: var(--text); }
+
+  /* ===== Focus areas: My Promise, Who I Help, Best Case, CTA ===== */
+  .bold-sans { font-family: "Montserrat", "Segoe UI", Arial, sans-serif; font-weight: 800; letter-spacing: -0.03em; line-height: 1.1; }
+  .serif { font-family: "Playfair Display", Georgia, "Times New Roman", serif; font-weight: 600; letter-spacing: -0.01em; }
+
+  .spotlight {
+    position: relative;
+    max-width: 860px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 56px 40px;
+    border: 1px solid rgba(212, 175, 55, 0.45);
+    border-radius: 20px;
+    background:
+      radial-gradient(ellipse at top, rgba(212, 175, 55, 0.16), transparent 70%),
+      linear-gradient(180deg, #1a1810, #121216);
+    box-shadow: 0 30px 80px rgba(0, 0, 0, 0.5), 0 0 60px rgba(212, 175, 55, 0.08);
+  }
+  .spotlight h2 { font-size: clamp(2rem, 5vw, 3.2rem); }
+  .spotlight .lead { color: var(--text); font-size: clamp(1.1rem, 2.4vw, 1.35rem); }
+
+  .card.featured {
+    border-color: rgba(212, 175, 55, 0.6);
+    background:
+      radial-gradient(ellipse at top left, rgba(212, 175, 55, 0.18), transparent 70%),
+      var(--card);
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5), 0 0 40px rgba(212, 175, 55, 0.12);
+  }
+  .card.featured h3 { font-family: "Playfair Display", Georgia, serif; font-size: 1.6rem; font-weight: 600; }
+  .card.featured p { color: var(--text); }
+
+  .cta { padding: 128px 0; }
+  .cta h2 { font-size: clamp(2.4rem, 6vw, 4rem); margin-bottom: 20px; }
+  .cta .btn { font-size: 1.2rem; padding: 22px 56px; animation: glow 2.8s ease-in-out infinite; }
+  @keyframes glow {
+    0%, 100% { box-shadow: 0 8px 30px rgba(212, 175, 55, 0.25); }
+    50%      { box-shadow: 0 8px 50px rgba(212, 175, 55, 0.55); }
+  }
+  @media (prefers-reduced-motion: reduce) { .cta .btn { animation: none; } }
+
+  /* Highlighted words */
+  .hl { color: var(--gold-light); font-weight: 600; }
+  p b, li b { color: #fff; font-weight: 700; }
+  .hero .note { font-size: 0.95rem; }
+
+  @media (max-width: 600px) {
+    .spotlight { padding: 40px 22px; }
+    .cta { padding: 88px 0; }
+    .cta .btn { padding: 20px 24px; }
+    section { padding: 64px 0; }
+    .section-head { margin-bottom: 32px; }
+    .card { padding: 24px 20px; }
+    .btn { width: 100%; padding: 18px 24px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- 1. HEADLINE -->
+<section class="hero">
+  <video class="hero-video" src="hero.mp4" autoplay muted loop playsinline preload="auto" aria-hidden="true"></video>
+  <div class="hero-overlay"></div>
+  <div class="container">
+    <span class="eyebrow">Meta Ads + Automations</span>
+    <h1>15 booked consultations. 30 days. <span class="gold">Or you pay nothing.</span></h1>
+    <p class="lead">Most med spas are paying for Meta leads that <b>ghost, bargain-hunt, or never show up.</b> I run Meta Ads built specifically for <span class="hl">serious treatment-seekers</span>, paired with a CRM that <span class="hl">contacts every lead within 60 seconds</span> so your front desk isn't the bottleneck.</p>
+    <a href="https://calendly.com/alizaxhh/demo-call-with-alizey" class="btn" target="_blank" rel="noopener">Book a Free Call</a>
+    <p class="note"><span class="hl">15 booked consultations in 30 days, or you don't pay.</span> You see every lead. <b>You pay nothing until I deliver.</b></p>
+  </div>
+</section>
+
+<!-- 2. WHAT I DO -->
+<section>
+  <div class="container">
+    <div class="section-head center spotlight">
+      <span class="eyebrow">My Promise</span>
+      <h2 class="bold-sans">15 booked consultations in <span class="gold">30 days.</span></h2>
+      <p class="lead">Not leads, not enquiries. Real people <span class="hl">contacted within 60 seconds, qualified, and confirmed to come in.</span></p>
+    </div>
+    <div class="grid">
+      <div class="card">
+        <div class="icon">01</div>
+        <h3>How I Do It</h3>
+        <p>I build treatment-specific ads featuring you or your injector, set up a CRM that responds to every lead in 60 seconds, and follow up automatically until they book. I track cost per booked consultation, not cost per lead, and optimize weekly.</p>
+      </div>
+      <div class="card">
+        <div class="icon">02</div>
+        <h3>My Secret</h3>
+        <p>Unlike most Meta Ads providers who just hand you a spreadsheet of names, I build the ads and the follow-up system together.</p>
+        <p>Every lead is qualified, contacted within 60 seconds, and guided toward an actual booking. I'm measured on booked consultations, not lead volume.</p>
+      </div>
+      <div class="card">
+        <div class="icon">03</div>
+        <h3>My Guarantee</h3>
+        <p>If I don't deliver 15 booked consultations in 30 days, you don't pay. No excuses.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 3. WHO IT IS FOR -->
+<section>
+  <div class="container">
+    <div class="section-head center spotlight">
+      <span class="eyebrow">Who I Help</span>
+      <h2 class="serif">Built for <span class="gold">Medical Spas</span></h2>
+      <p class="lead">Small to mid-sized, <span class="hl">single-location medical spas and medical aesthetics clinics</span>, typically led by an injector, RN, or physician, offering Botox, dermal fillers, laser treatments, body contouring and medical weight-loss.</p>
+    </div>
+    <div class="fit">
+      <div class="card">
+        <h3 class="gold">The Problem</h3>
+        <ul class="list">
+          <li>You get leads, but half of them ghost the moment you call.</li>
+          <li>The other half just want the cheapest deal, then disappear once they hear your real price.</li>
+          <li>Some book and never show up.</li>
+          <li>Your front desk is too busy to follow up fast enough, so by the time anyone reaches out, the window's closed.</li>
+          <li>A lead doesn't mean anything if it doesn't convert, and right now, too many don't.</li>
+        </ul>
+      </div>
+      <div class="card not">
+        <h3>This Is Not For</h3>
+        <ul class="list">
+          <li>Clinics that can't respond to a booking request once it lands (I bring people to the door, your team needs to be ready to confirm and show up).</li>
+          <li>Owners who want to approve every ad before it runs (I need room to test and optimize).</li>
+          <li>Anyone unwilling to start at $50 a day in ad spend.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 4. PROOF / RESULTS -->
+<section>
+  <div class="container">
+    <div class="section-head center">
+      <span class="eyebrow">Results</span>
+      <h2>What You Can Expect</h2>
+    </div>
+    <div class="stats">
+      <div class="stat"><strong>15</strong><span>Booked consultations</span></div>
+      <div class="stat"><strong>30</strong><span>Days</span></div>
+      <div class="stat"><strong>60s</strong><span>Lead response time</span></div>
+      <div class="stat"><strong>$0</strong><span>Upfront fee</span></div>
+    </div>
+    <div class="grid">
+      <div class="card featured">
+        <h3 class="gold">Best Case</h3>
+        <p>Your schedule is full of qualified consultations instead of no-shows and discount-hunters.</p>
+        <p>Your front desk isn't buried chasing cold leads.</p>
+        <p>You know your ad spend is turning into people in chairs, and you have a repeatable system instead of a one-off campaign.</p>
+      </div>
+      <div class="card">
+        <h3>Worst Case</h3>
+        <p>The campaign underdelivers. I don't hit 15 in 30 days. You pay nothing. The only money you risked was ad spend, and you saw exactly where every dollar went.</p>
+      </div>
+      <div class="card">
+        <h3>Investment</h3>
+        <ul class="list">
+          <li>$1,000, paid only after I deliver your 15th booked consultation.</li>
+          <li>Zero upfront fee.</li>
+          <li>You cover the ad spend, starting at $50 a day, paid directly to Meta.</li>
+          <li>For every booked consultation beyond the first 10, I also earn $50.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 5. CTA -->
+<section class="cta" id="cta">
+  <div class="container">
+    <span class="eyebrow">Next Step</span>
+    <h2 class="serif">One <span class="gold">10-15 minute</span> call.</h2>
+    <p class="lead">Tell me about your clinic, your current ad situation, and what a strong month looks like for you. I'll tell you exactly how I'd approach your market.</p>
+    <a href="https://calendly.com/alizaxhh/demo-call-with-alizey" class="btn" target="_blank" rel="noopener">Book a Free Call</a>
+  </div>
+</section>
+
+</body>
+</html>
