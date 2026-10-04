@@ -99,12 +99,18 @@
       var(--bg);
   }
   .hero { position: relative; overflow: hidden; }
-  .hero-video {
+  .hero-bg {
     position: absolute; inset: 0;
-    width: 100%; height: 100%;
-    object-fit: cover;
+    background: url("hero.jpg") center / cover no-repeat;
     z-index: 0;
+    transform-origin: 60% 40%;
+    animation: slowzoom 30s ease-in-out infinite alternate;
   }
+  @keyframes slowzoom {
+    from { transform: scale(1); }
+    to   { transform: scale(1.12); }
+  }
+  @media (prefers-reduced-motion: reduce) { .hero-bg { animation: none; } }
   .hero-overlay {
     position: absolute; inset: 0; z-index: 1;
     background:
@@ -292,6 +298,45 @@
     font-size: clamp(1rem, 2vw, 1.15rem);
   }
 
+  /* About */
+  .about-wrap {
+    display: grid;
+    grid-template-columns: 320px 1fr;
+    gap: 56px;
+    align-items: center;
+    max-width: 960px;
+    margin: 0 auto;
+  }
+  .about-photo {
+    aspect-ratio: 4 / 5;
+    border-radius: 20px;
+    overflow: hidden;
+    border: 1px solid rgba(212, 175, 55, 0.5);
+    background:
+      radial-gradient(ellipse at top, rgba(212, 175, 55, 0.18), transparent 70%),
+      var(--card);
+    box-shadow: 0 30px 80px rgba(0, 0, 0, 0.5), 0 0 50px rgba(212, 175, 55, 0.1);
+    display: grid;
+    place-items: center;
+  }
+  .about-photo img { width: 100%; height: 100%; object-fit: cover; object-position: center; display: block; }
+  .about-photo span {
+    font-family: "Montserrat", "Segoe UI", Arial, sans-serif;
+    font-weight: 800;
+    font-size: 4rem;
+    color: var(--gold);
+    letter-spacing: 0.05em;
+  }
+  .about-text h2 { font-size: clamp(2rem, 4.5vw, 2.8rem); }
+  .about-text .lead { color: var(--text); margin-bottom: 20px; }
+  .about-text p:not(.lead) { color: var(--muted); }
+  .about-text p + p { margin-top: 14px; }
+  @media (max-width: 760px) {
+    .about-wrap { grid-template-columns: 1fr; gap: 32px; text-align: center; }
+    .about-photo { max-width: 260px; margin: 0 auto; }
+    .about-text .lead { margin-left: auto; margin-right: auto; }
+  }
+
   /* Highlighted words */
   .hl { color: var(--gold-light); font-weight: 600; }
   p b, li b { color: #fff; font-weight: 700; }
@@ -312,7 +357,7 @@
 
 <!-- 1. HEADLINE -->
 <section class="hero">
-  <video class="hero-video" src="hero.mp4" autoplay muted loop playsinline preload="auto" aria-hidden="true"></video>
+  <div class="hero-bg" aria-hidden="true"></div>
   <div class="hero-overlay"></div>
   <div class="container">
     <span class="eyebrow">Meta Ads + Automations</span>
@@ -327,9 +372,9 @@
 <section>
   <div class="container">
     <div class="section-head center spotlight">
-      <span class="eyebrow">My Promise</span>
-      <h2 class="bold-sans">15 booked appointments in <span class="gold">30 days.</span></h2>
-      <p class="lead">Not leads, not enquiries. Real people <span class="hl">contacted within 60 seconds, qualified, and confirmed to come in.</span></p>
+      <span class="eyebrow">What I Do</span>
+      <h2 class="bold-sans">Not leads. Not enquiries. <span class="gold">Real appointments.</span></h2>
+      <p class="lead">Real people <span class="hl">contacted within 60 seconds, qualified, and confirmed to come in.</span></p>
     </div>
     <div class="grid">
       <div class="card">
@@ -417,6 +462,24 @@
           <li>You cover the ad spend, starting at $50 a day, paid directly to Meta.</li>
           <li>For every booked appointment beyond the first 10, I also earn $50.</li>
         </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section class="about">
+  <div class="container">
+    <div class="about-wrap">
+      <div class="about-photo">
+        <img src="alizey.jpg" alt="Alizey Khan" width="640" height="800" loading="lazy">
+      </div>
+      <div class="about-text">
+        <span class="eyebrow">Who's Behind This</span>
+        <h2 class="bold-sans">Hi, I'm <span class="gold">Alizey Khan.</span></h2>
+        <p class="lead">I help med spas turn Meta ads into booked appointments, not just leads.</p>
+        <p>Before building this offer, I studied what med spa owners actually say about their marketing. The same story came up again and again: thousands a month on agencies, leads that ghost or only want the cheapest deal, and owners ending up doing the agency's job themselves.</p>
+        <p>One owner summed it up in a single line: <span class="hl">"A lead doesn't mean anything if it doesn't convert."</span> That's what I built my system around: fast follow-up, qualified bookings, and a guarantee that puts the risk on me, not you.</p>
       </div>
     </div>
   </div>
