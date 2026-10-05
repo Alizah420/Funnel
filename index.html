@@ -352,6 +352,27 @@
     .btn { width: 100%; padding: 18px 24px; }
   }
 </style>
+
+<!-- Calendly pop-up widget -->
+<link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet">
+<script src="https://assets.calendly.com/assets/external/widget.js" async></script>
+
+<!-- Meta Pixel Code -->
+<script>
+!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}(window, document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '1605934544026534');
+fbq('track', 'PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none" alt=""
+src="https://www.facebook.com/tr?id=1605934544026534&ev=PageView&noscript=1"></noscript>
+<!-- End Meta Pixel Code -->
 </head>
 <body>
 
@@ -495,6 +516,30 @@
     <a href="https://calendly.com/alizaxhh/demo-call-with-alizey" class="btn" target="_blank" rel="noopener">Book a Free Call</a>
   </div>
 </section>
+
+<script>
+  // "Book a Free Call" opens Calendly in a pop-up on this page.
+  // If the Calendly script hasn't loaded, the link still opens Calendly in a new tab.
+  var CALENDLY_URL = 'https://calendly.com/alizaxhh/demo-call-with-alizey?hide_gdpr_banner=1';
+
+  document.querySelectorAll('a[href*="calendly.com"]').forEach(function (btn) {
+    btn.addEventListener('click', function (e) {
+      if (window.fbq) fbq('track', 'Lead');
+      if (window.Calendly) {
+        e.preventDefault();
+        Calendly.initPopupWidget({ url: CALENDLY_URL });
+      }
+    });
+  });
+
+  // Calendly tells the page when a booking is completed
+  window.addEventListener('message', function (e) {
+    if (e.origin !== 'https://calendly.com' || !e.data || !e.data.event) return;
+    if (e.data.event === 'calendly.event_scheduled' && window.fbq) {
+      fbq('track', 'Schedule');
+    }
+  });
+</script>
 
 </body>
 </html>
