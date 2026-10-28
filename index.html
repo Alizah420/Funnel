@@ -353,10 +353,6 @@
   }
 </style>
 
-<!-- Calendly pop-up widget -->
-<link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet">
-<script src="https://assets.calendly.com/assets/external/widget.js" async></script>
-
 <!-- Meta Pixel Code -->
 <script>
 !function(f,b,e,v,n,t,s)
@@ -384,7 +380,7 @@ src="https://www.facebook.com/tr?id=1605934544026534&ev=PageView&noscript=1"></n
     <span class="eyebrow">Meta Ads + Automations</span>
     <h1>15 booked appointments. 30 days. <span class="gold">Or you pay nothing.</span></h1>
     <p class="lead">Most med spas are paying for Meta leads that <b>ghost, bargain-hunt, or never show up.</b> I run Meta Ads built specifically for <span class="hl">serious treatment-seekers</span>, paired with a CRM that <span class="hl">contacts every lead within 60 seconds</span> so your front desk isn't the bottleneck.</p>
-    <a href="https://calendly.com/alizaxhh/demo-call-with-alizey" class="btn" target="_blank" rel="noopener">Book a Free Call</a>
+    <a href="https://ig.me/m/alizey__khannnn" class="btn" target="_blank" rel="noopener">DM me BOOK</a>
     <p class="note"><span class="hl">15 booked appointments in 30 days on a $50/day budget, or you don't pay.</span> You see every lead. <b>You pay nothing until I deliver.</b></p>
   </div>
 </section>
@@ -510,34 +506,19 @@ src="https://www.facebook.com/tr?id=1605934544026534&ev=PageView&noscript=1"></n
 <section class="cta" id="cta">
   <div class="container">
     <span class="eyebrow">Next Step</span>
-    <h2 class="bold-sans">One <span class="gold">15-minute</span> call.</h2>
+    <h2 class="bold-sans">DM me <span class="gold">BOOK</span> on Instagram.</h2>
     <p class="lead">Tell me about your clinic, your current ad situation, and what a strong month looks like for you. I'll tell you exactly how I'd approach your market.</p>
     <p class="risk">You only pay me after the 15 appointments are on your calendar, so the risk is on me, not you.</p>
-    <a href="https://calendly.com/alizaxhh/demo-call-with-alizey" class="btn" target="_blank" rel="noopener">Book a Free Call</a>
+    <a href="https://ig.me/m/alizey__khannnn" class="btn" target="_blank" rel="noopener">DM me BOOK</a>
   </div>
 </section>
 
 <script>
-  // "Book a Free Call" opens Calendly in a pop-up on this page.
-  // If the Calendly script hasn't loaded, the link still opens Calendly in a new tab.
-  var CALENDLY_URL = 'https://calendly.com/alizaxhh/demo-call-with-alizey?hide_gdpr_banner=1';
-
-  document.querySelectorAll('a[href*="calendly.com"]').forEach(function (btn) {
-    btn.addEventListener('click', function (e) {
-      if (window.fbq) fbq('track', 'Lead');
-      if (window.Calendly) {
-        e.preventDefault();
-        Calendly.initPopupWidget({ url: CALENDLY_URL });
-      }
+  // "DM me BOOK" opens an Instagram DM; tell the pixel someone reached out
+  document.querySelectorAll('a[href*="ig.me/m/"]').forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      if (window.fbq) fbq('track', 'Contact');
     });
-  });
-
-  // Calendly tells the page when a booking is completed
-  window.addEventListener('message', function (e) {
-    if (e.origin !== 'https://calendly.com' || !e.data || !e.data.event) return;
-    if (e.data.event === 'calendly.event_scheduled' && window.fbq) {
-      fbq('track', 'Schedule');
-    }
   });
 </script>
 
